@@ -17,11 +17,10 @@ SlidingWindowFilter::SlidingWindowFilter(byte size, int seed)
 	shiftOffset = size;
 	
 	filterWindowSize = 1;
-	for(int i = size; i > 0; i--)
+	for(int i = size; i > 0; i--)	// compute number of samples in sliding window
 	{
 		filterWindowSize = filterWindowSize << 1;
 	}
-	//filterWindowSize = int(pow(2.0f, float(size)));		// number of samples in sliding window
 	
 	DataList = (int*) calloc (size, sizeof(int));		// array for data
 	
