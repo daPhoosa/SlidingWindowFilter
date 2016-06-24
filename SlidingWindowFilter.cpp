@@ -47,10 +47,10 @@ int SlidingWindowFilter::in(int value) // on 16Mhz Arduino: 8us
 	
 	DataList[OldestDataPoint] = value; // replace oldest data in list
 	
-	currentResult = int(dataSum >> shiftOffset);
+	currentResult = int(dataSum >> shiftOffset);  // divide total by the number of samples
 	
 	OldestDataPoint++;	// increment and wrap pointer
-	if(OldestDataPoint >= filterWindowSize)  OldestDataPoint = 0;
+	if(OldestDataPoint == filterWindowSize)  OldestDataPoint = 0;
 	
 	return currentResult;
 }
