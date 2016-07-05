@@ -22,7 +22,7 @@ SlidingWindowFilter::SlidingWindowFilter(byte size, int seed)
 		filterWindowSize = filterWindowSize << 1;
 	}
 	
-	DataList = (int*) calloc (size, sizeof(int));		// array for data
+	DataList = (int*) calloc (filterWindowSize, sizeof(int));		// array for data
 	
 	OldestDataPoint = 0;							// oldest data point location 
 	
