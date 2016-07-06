@@ -14,7 +14,7 @@
 SlidingWindowFilter::SlidingWindowFilter(byte size, int seed)
 {
 	
-	shiftOffset = size;
+	shiftOffset = constrain(size, 1, 8);
 	
 	filterWindowSize = 1;
 	for(int i = size; i > 0; i--)	// compute number of samples in sliding window
