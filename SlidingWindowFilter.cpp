@@ -14,7 +14,7 @@
 SlidingWindowFilter::SlidingWindowFilter(byte size, int seed)
 {
 	
-	shiftOffset = size;
+	shiftOffset = constrain(size, 1, 8);
 	
 	filterWindowSize = 1;
 	for(int i = size; i > 0; i--)	// compute number of samples in sliding window
@@ -22,7 +22,7 @@ SlidingWindowFilter::SlidingWindowFilter(byte size, int seed)
 		filterWindowSize = filterWindowSize << 1;
 	}
 	
-	DataList = (int*) calloc (size, sizeof(int));		// array for data
+	DataList = (int*) calloc (filterWindowSize, sizeof(int));		// array for data
 	
 	OldestDataPoint = 0;							// oldest data point location 
 	
